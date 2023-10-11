@@ -59,8 +59,6 @@ namespace CPP
 
     void Game::Information()
     {
-        String String{"1\n2\n3\n"};
-        std::cout << String.Information(4) << "\n\n";
         std::cout << "Game:" << "\n"
                   << "    Locations: " << "\n"
                   << Spacing(Locations , false , 8) << "\n"
