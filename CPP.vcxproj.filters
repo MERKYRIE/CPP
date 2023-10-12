@@ -1,27 +1,2 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <ItemGroup>
-    <ClCompile Include="Weapon.cpp" />
-    <ClCompile Include="Merchant.cpp" />
-    <ClCompile Include="Keyboard.cpp" />
-    <ClCompile Include="Location.cpp" />
-    <ClCompile Include="Game.cpp" />
-    <ClCompile Include="Item.cpp" />
-    <ClCompile Include="Console.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Weapon.hpp" />
-    <ClInclude Include="Merchant.hpp" />
-    <ClInclude Include="Console.hpp" />
-    <ClInclude Include="Keyboard.hpp" />
-    <ClInclude Include="Location.hpp" />
-    <ClInclude Include="Game.hpp" />
-    <ClInclude Include="Manipulator.hpp" />
-    <ClInclude Include="String.hpp" />
-    <ClInclude Include="String.inl" />
-    <ClInclude Include="Stream.hpp" />
-    <ClInclude Include="Stream.inl" />
-    <ClInclude Include="Manipulator.inl" />
-    <ClInclude Include="Item.hpp" />
-  </ItemGroup>
-</Project>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" />

@@ -4,7 +4,7 @@
 
 #include <vector>
 
-namespace CPP
+namespace CPP2
 {
     inline class _Keyboard
     {

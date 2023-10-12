@@ -127,36 +127,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="Console.cpp">
-      <FileType>Document</FileType>
-    </ClCompile>
-    <ClCompile Include="Game.cpp" />
-    <ClCompile Include="Item.cpp" />
-    <ClCompile Include="Keyboard.cpp" />
-    <ClCompile Include="Location.cpp" />
-    <ClInclude Include="Item.hpp" />
-    <ClInclude Include="Manipulator.inl">
-      <FileType>Document</FileType>
-    </ClInclude>
-    <ClCompile Include="Merchant.cpp" />
-    <ClInclude Include="Stream.hpp" />
-    <ClInclude Include="String.inl" />
-    <ClInclude Include="Stream.inl">
-      <FileType>Document</FileType>
-    </ClInclude>
-    <ClCompile Include="Weapon.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Console.hpp" />
-    <ClInclude Include="Game.hpp" />
-    <ClInclude Include="Keyboard.hpp" />
-    <ClInclude Include="Location.hpp" />
-    <ClInclude Include="Manipulator.hpp" />
-    <ClInclude Include="Merchant.hpp" />
-    <ClInclude Include="String.hpp" />
-    <ClInclude Include="Weapon.hpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

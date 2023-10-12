@@ -1,14 +1,18 @@
 #include "Location.hpp"
 
-#include "Manipulator.hpp"
-#include "String.hpp"
+#include "Console.hpp"
 
-namespace CPP
+namespace CPP2
 {
     std::string Location::Message() const
     {
+        return Title;
+    }
+    
+    std::string Location::Information() const
+    {
         return Title + ":" + "\n" +
-               "            Merchants: " + "\n" +
-               Spacing(Merchants , false , 16);
+               "    Merchants: " + "\n" +
+               Console.Message(Merchants , 8 , true);
     }
 }

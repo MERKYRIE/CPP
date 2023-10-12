@@ -1,17 +1,15 @@
 #pragma once
 
 #include <iostream>
-#include <string>
 
 namespace CPP2
 {
-    class Weapon
+    class Character
     {
         private:
             friend class Game;
         private:
-            std::string Title;
-            unsigned long long int Damage;
+            std::string Name;
         public:
             std::string Message() const;
             std::string Information() const;

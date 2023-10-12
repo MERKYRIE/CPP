@@ -1,6 +1,6 @@
 #include "Keyboard.hpp"
 
-namespace CPP
+namespace CPP2
 {
     _Keyboard::_Keyboard() :
         _Last(256) ,

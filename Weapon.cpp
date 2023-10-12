@@ -1,33 +1,15 @@
 #include "Weapon.hpp"
 
-namespace CPP
+namespace CPP2
 {
     std::string Weapon::Message() const
     {
-        return Title + ":" + "\n" +
-               "                            Description: " + Description + "\n" +
-               "                            Weight: " + std::to_string(Weight) + "\n" +
-               "                            Damage: " + std::to_string(Damage) + "\n" +
-               "                            Cost: " + std::to_string(Cost) + "\n" +
-               "                            Durability: " + std::to_string(Durability);
+        return Title;
     }
 
-    bool Weapon::Bought(unsigned long long int& Money) const
+    std::string Weapon::Information() const
     {
-        if(Money >= Cost)
-        {
-            Money -= Cost;
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return Title + ":" + "\n" +
+               "    Damage: " + std::to_string(Damage);
     }
-}
-
-std::ostream& operator<<(std::ostream& Stream , const ::CPP::Weapon& Weapon)
-{
-    Stream << Weapon.Message();
-    return Stream;
 }
