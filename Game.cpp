@@ -1,220 +1,192 @@
 #include "Game.hpp"
 
 #include "Console.hpp"
-#include "Keyboard.hpp"
+#include "Damages.hpp"
+#include "Item.hpp"
+#include "Location.hpp"
+#include "Weapon.hpp"
+#include "Weaponry.hpp"
+#include "Weapons.hpp"
 
-namespace CPP2
+namespace CPP::Game
 {
-    Game::Game()
+    std::vector<_Location*> Locations;
+    std::string Name;
+    unsigned long long int Location;
+    unsigned long long int Money;
+    std::vector<_Item*> Inventory;
+    _Weapon* Weapon;
+    
+    void Initialize()
     {
-        Locations.emplace_back();
-        Locations.back().Title = "Location 0";
-        Locations.back().Transitions = {1};
-        Locations.back().Merchants.emplace_back();
-        Locations.back().Merchants.back().Name = "Merchant 0";
-        Locations.back().Merchants.back().Shop = "<Shop>";
-        Locations.back().Merchants.back().Description = "<Description>";
-        Locations.back().Merchants.back().Phrase = "<Phrase>";
-        Locations.back().Merchants.back().Money = 0;
-        Locations.back().Merchants.back().Inventory.emplace_back();
-        Locations.back().Merchants.back().Inventory.back().Title = "Item 0";
-        Locations.back().Merchants.back().Inventory.back().Cost = 0;
-        Locations.back().Merchants.back().Inventory.emplace_back();
-        Locations.back().Merchants.back().Inventory.back().Title = "Item 1";
-        Locations.back().Merchants.back().Inventory.back().Cost = 1;
-        Locations.back().Merchants.emplace_back();
-        Locations.back().Merchants.back().Name = "Merchant 1";
-        Locations.back().Merchants.back().Shop = "<Shop>";
-        Locations.back().Merchants.back().Description = "<Description>";
-        Locations.back().Merchants.back().Phrase = "<Phrase>";
-        Locations.back().Merchants.back().Money = 0;
-        Locations.back().Merchants.back().Inventory.emplace_back();
-        Locations.back().Merchants.back().Inventory.back().Title = "Item 0";
-        Locations.back().Merchants.back().Inventory.back().Cost = 0;
-        Locations.back().Merchants.back().Inventory.emplace_back();
-        Locations.back().Merchants.back().Inventory.back().Title = "Item 1";
-        Locations.back().Merchants.back().Inventory.back().Cost = 1;
-        Locations.emplace_back();
-        Locations.back().Title = "Location 1";
-        Locations.back().Transitions = {0 , 2};
-        Locations.back().Merchants.emplace_back();
-        Locations.back().Merchants.back().Name = "Merchant 0";
-        Locations.back().Merchants.back().Shop = "<Shop>";
-        Locations.back().Merchants.back().Description = "<Description>";
-        Locations.back().Merchants.back().Phrase = "<Phrase>";
-        Locations.back().Merchants.back().Money = 0;
-        Locations.back().Merchants.back().Inventory.emplace_back();
-        Locations.back().Merchants.back().Inventory.back().Title = "Item 0";
-        Locations.back().Merchants.back().Inventory.back().Cost = 0;
-        Locations.back().Merchants.back().Inventory.emplace_back();
-        Locations.back().Merchants.back().Inventory.back().Title = "Item 1";
-        Locations.back().Merchants.back().Inventory.back().Cost = 1;
-        Locations.back().Merchants.emplace_back();
-        Locations.back().Merchants.back().Name = "Merchant 1";
-        Locations.back().Merchants.back().Shop = "<Shop>";
-        Locations.back().Merchants.back().Description = "<Description>";
-        Locations.back().Merchants.back().Phrase = "<Phrase>";
-        Locations.back().Merchants.back().Money = 0;
-        Locations.back().Merchants.back().Inventory.emplace_back();
-        Locations.back().Merchants.back().Inventory.back().Title = "Item 0";
-        Locations.back().Merchants.back().Inventory.back().Cost = 0;
-        Locations.back().Merchants.back().Inventory.emplace_back();
-        Locations.back().Merchants.back().Inventory.back().Title = "Item 1";
-        Locations.back().Merchants.back().Inventory.back().Cost = 1;
-        Locations.emplace_back();
-        Locations.back().Title = "Location 2";
-        Locations.back().Transitions = {1};
-        Locations.back().Merchants.emplace_back();
-        Locations.back().Merchants.back().Name = "Merchant 0";
-        Locations.back().Merchants.back().Shop = "<Shop>";
-        Locations.back().Merchants.back().Description = "<Description>";
-        Locations.back().Merchants.back().Phrase = "<Phrase>";
-        Locations.back().Merchants.back().Money = 0;
-        Locations.back().Merchants.back().Inventory.emplace_back();
-        Locations.back().Merchants.back().Inventory.back().Title = "Item 0";
-        Locations.back().Merchants.back().Inventory.back().Cost = 0;
-        Locations.back().Merchants.back().Inventory.emplace_back();
-        Locations.back().Merchants.back().Inventory.back().Title = "Item 1";
-        Locations.back().Merchants.back().Inventory.back().Cost = 1;
-        Locations.back().Merchants.emplace_back();
-        Locations.back().Merchants.back().Name = "Merchant 1";
-        Locations.back().Merchants.back().Shop = "<Shop>";
-        Locations.back().Merchants.back().Description = "<Description>";
-        Locations.back().Merchants.back().Phrase = "<Phrase>";
-        Locations.back().Merchants.back().Money = 0;
-        Locations.back().Merchants.back().Inventory.emplace_back();
-        Locations.back().Merchants.back().Inventory.back().Title = "Item 0";
-        Locations.back().Merchants.back().Inventory.back().Cost = 0;
-        Locations.back().Merchants.back().Inventory.emplace_back();
-        Locations.back().Merchants.back().Inventory.back().Title = "Item 1";
-        Locations.back().Merchants.back().Inventory.back().Cost = 1;
+        Weapons::Initialize();
+        Damages::Initialize();
+        Locations.push_back(new _Location);
+        Locations[0]->Title = "Location 0";
+        Locations[0]->Transitions = {1};
+        Locations[0]->Stores = {new _Store{"Store 0"} , new _Store{"Store 1"}};
+        Locations.push_back(new _Location);
+        Locations[1]->Title = "Location 1";
+        Locations[1]->Transitions = {0 , 2};
+        Locations[1]->Stores = {new _Store{"Store 0"} , new _Store{"Store 1"}};
+        Locations.push_back(new _Location);
+        Locations[2]->Title = "Location 2";
+        Locations[2]->Transitions = {1};
+        Locations[2]->Stores = {new _Weaponry{"Weaponry 0"} , new _Weaponry{"Weaponry 1"}};
         Name = "<Name>";
         Location = 0;
         Money = 1;
         Inventory = {};
-        Weapon.Title = "<Weapon>";
+        Weapon = &Weapons::Array[Weapons::Type::AntlerAxe];
     }
 
-    void Game::Inspect()
+    void Inspect()
     {
         std::cout << Name << ":" << "\n"
-                  << "    Location: " << Locations[Location].Title << "\n"
+                  << "    Location: " << Console.Information(Locations[Location] , 4 , false) << "\n"
                   << "    Money: " << Money << "\n"
                   << "    Inventory: " << "\n"
                   << (Inventory.empty() ? "" : Console.Information(Inventory , 8 , true) + "\n")
                   << "    Weapon: " << Console.Information(Weapon , 4 , false) << "\n\n";
     }
 
-    void Game::Buy()
+    void Buy()
     {
         std::vector<std::string> Entries;
-        for(const class Merchant& Merchant : Locations[Location].Merchants)
+        for(const _Store* Store : Locations[Location]->Stores)
         {
-            Entries.push_back(Merchant.Information());
+            Entries.push_back(Store->Information());
         }
         if(Entries.empty())
         {
             std::cout << "Nobody to buy something from!" << "\n\n";
             return;
         }
-        unsigned long long int Merchant{Console.Menu(Entries) - 1};
-        if(Locations[Location].Merchants[Merchant].Inventory.empty())
+        unsigned long long int Store{Console.Menu(Entries) - 1};
+        if(Store == std::numeric_limits<unsigned long long int>::max())
         {
-            std::cout << Locations[Location].Merchants[Merchant].Name << ": 'There's no goods for you!'" << "\n\n";
+            return;
+        }
+        if(Locations[Location]->Stores[Store]->Inventory.empty())
+        {
+            std::cout << Locations[Location]->Stores[Store]->Title << ": 'There's no goods for you!'" << "\n\n";
             return;
         }
         Entries.clear();
-        for(const class Item& Item : Locations[Location].Merchants[Merchant].Inventory)
+        for(const _Item* Item : Locations[Location]->Stores[Store]->Inventory)
         {
-            Entries.push_back(Item.Information());
+            Entries.push_back(Item->Information());
         }
         unsigned long long int Item{Console.Menu(Entries) - 1};
-        if(Money >= Locations[Location].Merchants[Merchant].Inventory[Item].Cost)
+        if(Item == std::numeric_limits<unsigned long long int>::max())
         {
-            Money -= Locations[Location].Merchants[Merchant].Inventory[Item].Cost;
-            Inventory.push_back(Locations[Location].Merchants[Merchant].Inventory[Item]);
-            Locations[Location].Merchants[Merchant].Inventory.erase(Locations[Location].Merchants[Merchant].Inventory.begin() + Item);
-            std::cout << Locations[Location].Merchants[Merchant].Name << ": 'Sold!'" << "\n\n";
+            return;
         }
-        std::cout << Locations[Location].Merchants[Merchant].Name << ": 'It's to expensive for you!'" << "\n\n";
+        if(Money >= Locations[Location]->Stores[Store]->Inventory[Item]->Cost)
+        {
+            Money -= Locations[Location]->Stores[Store]->Inventory[Item]->Cost;
+            Inventory.push_back(Locations[Location]->Stores[Store]->Inventory[Item]);
+            Locations[Location]->Stores[Store]->Inventory.erase(Locations[Location]->Stores[Store]->Inventory.begin() + Item);
+            std::cout << Locations[Location]->Stores[Store]->Title << ": 'Sold!'" << "\n\n";
+            return;
+        }
+        std::cout << Locations[Location]->Stores[Store]->Title << ": 'It's to expensive for you!'" << "\n\n";
     }
 
-    void Game::Sell()
+    void Sell()
     {
         std::vector<std::string> Entries;
-        for(const class Merchant& Merchant : Locations[Location].Merchants)
+        for(const _Store* Store : Locations[Location]->Stores)
         {
-            Entries.push_back(Merchant.Information());
+            Entries.push_back(Store->Information());
         }
         if(Entries.empty())
         {
             std::cout << "Nobody to sell something to!" << "\n\n";
             return;
         }
-        unsigned long long int Merchant{Console.Menu(Entries) - 1};
+        unsigned long long int Store{Console.Menu(Entries) - 1};
+        if(Store == std::numeric_limits<unsigned long long int>::max())
+        {
+            return;
+        }
         if(Inventory.empty())
         {
-            std::cout << Locations[Location].Merchants[Merchant].Name << ": 'You've no goods for me!'" << "\n\n";
+            std::cout << Locations[Location]->Stores[Store]->Title << ": 'You've no goods for me!'" << "\n\n";
             return;
         }
         Entries.clear();
-        for(const class Item& Item : Inventory)
+        for(const _Item* Item : Inventory)
         {
-            Entries.push_back(Item.Information());
+            Entries.push_back(Item->Information());
         }
         unsigned long long int Item{Console.Menu(Entries) - 1};
-        if(Locations[Location].Merchants[Merchant].Money >= Inventory[Item].Cost)
+        if(Item == std::numeric_limits<unsigned long long int>::max())
         {
-            Locations[Location].Merchants[Merchant].Money -= Inventory[Item].Cost;
-            Locations[Location].Merchants[Merchant].Inventory.push_back(Inventory[Item]);
-            Inventory.erase(Inventory.begin() + Item);
-            std::cout << Locations[Location].Merchants[Merchant].Name << ": 'Bought!'" << "\n\n";
+            return;
         }
-        std::cout << Locations[Location].Merchants[Merchant].Name << ": 'It's to expensive for me!'" << "\n\n";
+        if(Locations[Location]->Stores[Store]->Money >= Inventory[Item]->Cost)
+        {
+            Locations[Location]->Stores[Store]->Money -= Inventory[Item]->Cost;
+            Locations[Location]->Stores[Store]->Inventory.push_back(Inventory[Item]);
+            Inventory.erase(Inventory.begin() + Item);
+            std::cout << Locations[Location]->Stores[Store]->Title << ": 'Bought!'" << "\n\n";
+            return;
+        }
+        std::cout << Locations[Location]->Stores[Store]->Title << ": 'It's to expensive for me!'" << "\n\n";
     }
 
-    void Game::Attack()
+    void Attack()
     {
         std::vector<std::string> Entries;
-        for(const class Merchant& Merchant : Locations[Location].Merchants)
+        for(const _Store* Store : Locations[Location]->Stores)
         {
-            Entries.push_back(Merchant.Information());
+            Entries.push_back(Store->Information());
         }
         if(Entries.empty())
         {
             std::cout << "Nobody to attack!" << "\n\n";
             return;
         }
-        unsigned long long int Merchant{Console.Menu(Entries) - 1};
-        if(Locations[Location].Merchants[Merchant].Dead)
+        unsigned long long int Store{Console.Menu(Entries) - 1};
+        if(Store == std::numeric_limits<unsigned long long int>::max())
+        {
+            return;
+        }
+        if(Locations[Location]->Stores[Store]->Dead)
         {
             std::cout << "He's dead already!" << "\n\n";
+            return;
         }
-        Locations[Location].Merchants[Merchant].Dead = true;
+        Locations[Location]->Stores[Store]->Dead = true;
         std::cout << "You killed the local merchant." << "\n"
                   << "Now the whole town is againt you." << "\n"
                   << "You are hunted by the town peasants." << "\n\n";
     }
 
-    void Game::Loot()
+    void Loot()
     {
         std::vector<std::string> Entries;
-        for(const class Merchant& Merchant : Locations[Location].Merchants)
+        for(const _Store* Store : Locations[Location]->Stores)
         {
-            Entries.push_back(Merchant.Information());
+            Entries.push_back(Store->Information());
         }
         if(Entries.empty())
         {
             std::cout << "Nobody to loot!" << "\n\n";
             return;
         }
-        unsigned long long int Merchant{Console.Menu(Entries) - 1};
-        if(!Locations[Location].Merchants[Merchant].Dead)
+        unsigned long long int Store{Console.Menu(Entries) - 1};
+        if(Store == std::numeric_limits<unsigned long long int>::max())
         {
-            std::cout << Locations[Location].Merchants[Merchant].Name << ": 'What are you doing here!'" << "\n\n";
             return;
         }
-        if(Locations[Location].Merchants[Merchant].Inventory.empty())
+        if(!Locations[Location]->Stores[Store]->Dead)
+        {
+            std::cout << Locations[Location]->Stores[Store]->Title << ": 'What are you doing here!'" << "\n\n";
+            return;
+        }
+        if(Locations[Location]->Stores[Store]->Inventory.empty())
         {
             std::cout << "He's looted already!" << "\n\n";
             return;
@@ -224,14 +196,14 @@ namespace CPP2
         std::exit(0);
     }
 
-    void Game::Travel()
+    void Travel()
     {
         std::vector<std::string> Entries;
         std::vector<unsigned long long int> Options;
-        for(unsigned long long int Transition{0} ; Transition < Locations[Location].Transitions.size() ; Transition++)
+        for(unsigned long long int Transition{0} ; Transition < Locations[Location]->Transitions.size() ; Transition++)
         {
-            Entries.push_back(Locations[Locations[Location].Transitions[Transition]].Information());
-            Options.push_back(Transition);
+            Entries.push_back(Locations[Locations[Location]->Transitions[Transition]]->Message());
+            Options.push_back(Transition + 1);
         }
         if(Entries.empty())
         {
@@ -239,10 +211,14 @@ namespace CPP2
             return;
         }
         unsigned long long int Transition{Console.Menu(Entries , Options)};
-        this->Location = Locations[Location].Transitions[Transition];
+        if(Transition == std::numeric_limits<unsigned long long int>::min())
+        {
+            return;
+        }
+        Location = Locations[Location]->Transitions[Transition - 1];
     }
 
-    void Game::Speak()
+    void Speak()
     {
     
     }
@@ -250,9 +226,10 @@ namespace CPP2
 
 signed int main()
 {
+    ::CPP::Game::Initialize();
     do
     {
-        switch(::CPP2::Console.Menu
+        switch(::CPP::Console.Menu
         ({
             "Inspect" ,
             "Buy" ,
@@ -267,25 +244,25 @@ signed int main()
                 return 0;
             break;
             case 1:
-                ::CPP2::Game.Inspect();
+                ::CPP::Game::Inspect();
             break;
             case 2:
-                ::CPP2::Game.Buy();
+                ::CPP::Game::Buy();
             break;
             case 3:
-                ::CPP2::Game.Sell();
+                ::CPP::Game::Sell();
             break;
             case 4:
-                ::CPP2::Game.Attack();
+                ::CPP::Game::Attack();
             break;
             case 5:
-                ::CPP2::Game.Loot();
+                ::CPP::Game::Loot();
             break;
             case 6:
-                ::CPP2::Game.Travel();
+                ::CPP::Game::Travel();
             break;
             case 7:
-                ::CPP2::Game.Speak();
+                ::CPP::Game::Speak();
             break;
         }
     }

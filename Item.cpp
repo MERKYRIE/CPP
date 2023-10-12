@@ -1,13 +1,13 @@
 #include "Item.hpp"
 
-namespace CPP2
+namespace CPP
 {
-    std::string Item::Message() const
+    std::string _Item::Message() const
     {
         return Title;
     }
     
-    std::string Item::Information() const
+    std::string _Item::Information() const
     {
         return Title + ":" + "\n" +
                "    Cost: " + std::to_string(Cost);

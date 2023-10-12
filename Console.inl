@@ -2,38 +2,38 @@
 
 #include "Console.hpp"
 
-namespace CPP2
+namespace CPP
 {
-    inline Console::Console() :
+    inline _Console::_Console() :
         Handle{GetStdHandle(STD_OUTPUT_HANDLE)}
     {
         
     }
 
-    inline void Console::Clear()
+    inline void _Console::Clear()
     {
         std::system("Clear");
     }
 
-    inline void Console::Pause()
+    inline void _Console::Pause()
     {
         std::system("Pause");
     }
 
-    inline void Console::Seek(signed short int X , signed short int Y)
+    inline void _Console::Seek(signed short int X , signed short int Y)
     {
         CONSOLE_SCREEN_BUFFER_INFO Information;
         GetConsoleScreenBufferInfo(Handle , &Information);
         SetConsoleCursorPosition(Handle , {static_cast<signed short int>(Information.dwCursorPosition.X + X) , static_cast<signed short int>(Information.dwCursorPosition.Y + Y)});
     }
 
-    inline void Console::Put(char Character)
+    inline void _Console::Put(char Character)
     {
         std::cout << Character;
         Seek(-1 , 0);
     }
 
-    inline std::string Console::Parse(const std::string& String , unsigned long long int Spacing , bool Prefix)
+    inline std::string _Console::Parse(const std::string& String , unsigned long long int Spacing , bool Prefix)
     {
         std::string Spaced{String};
         if(Prefix)
@@ -51,17 +51,27 @@ namespace CPP2
         return Spaced;
     }
 
-    template<typename Type> std::string Console::Message(const Type& Value , unsigned long long int Spacing , bool Prefix)
+    template<typename Type> std::string _Console::Message(const Type& Value , unsigned long long int Spacing , bool Prefix)
     {
         return Parse(Value.Message() , Spacing , Prefix);
     }
 
-    template<typename Type> std::string Console::Information(const Type& Value , unsigned long long int Spacing , bool Prefix)
+    template<typename Type> std::string _Console::Information(const Type& Value , unsigned long long int Spacing , bool Prefix)
     {
         return Parse(Value.Information() , Spacing , Prefix);
     }
 
-    template<typename Type> std::string Console::Message(const std::vector<Type>& Vector , unsigned long long int Spacing , bool Prefix)
+    template<typename Type> std::string _Console::Message(const Type& Value , unsigned long long int Spacing , bool Prefix) requires std::is_pointer_v<Type>
+    {
+        return Message(*Value , Spacing , Prefix);
+    }
+
+    template<typename Type> std::string _Console::Information(const Type& Value , unsigned long long int Spacing , bool Prefix) requires std::is_pointer_v<Type>
+    {
+        return Information(*Value , Spacing , Prefix);
+    }
+
+    template<typename Type> std::string _Console::Message(const std::vector<Type>& Vector , unsigned long long int Spacing , bool Prefix)
     {
         std::string String;
         for(const Type& Value : Vector)
@@ -75,7 +85,7 @@ namespace CPP2
         return String;
     }
 
-    template<typename Type> std::string Console::Information(const std::vector<Type>& Vector , unsigned long long int Spacing , bool Prefix)
+    template<typename Type> std::string _Console::Information(const std::vector<Type>& Vector , unsigned long long int Spacing , bool Prefix)
     {
         std::string String;
         for(const Type& Value : Vector)
@@ -89,7 +99,7 @@ namespace CPP2
         return String;
     }
 
-    inline unsigned long long int Console::Menu(const std::vector<std::string>& Entries)
+    inline unsigned long long int _Console::Menu(const std::vector<std::string>& Entries)
     {
         for(unsigned long long int Entry{0} ; Entry < Entries.size() ; Entry++)
         {
@@ -140,7 +150,7 @@ namespace CPP2
         return 0;
     }
 
-    template<typename Type> unsigned long long int Console::Menu(const std::vector<std::string>& Entries , const std::vector<Type>& Options)
+    template<typename Type> unsigned long long int _Console::Menu(const std::vector<std::string>& Entries , const std::vector<Type>& Options)
     {
         for(unsigned long long int Entry{0} ; Entry < Entries.size() ; Entry++)
         {

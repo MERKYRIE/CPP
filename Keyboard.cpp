@@ -1,6 +1,6 @@
 #include "Keyboard.hpp"
 
-namespace CPP2
+namespace CPP
 {
     _Keyboard::_Keyboard() :
         _Last(256) ,
@@ -16,7 +16,7 @@ namespace CPP2
         GetKeyboardState(_State.data());
     }
         
-    bool _Keyboard::Pressed(std::uint8_t _Key)
+    bool _Keyboard::Pressed(unsigned char _Key)
     {
         return !(_Last[_Key] & 0x80) && (_State[_Key] & 0x80);
     }

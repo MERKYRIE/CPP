@@ -1,15 +1,20 @@
 #include "Weapon.hpp"
 
-namespace CPP2
-{
-    std::string Weapon::Message() const
-    {
-        return Title;
-    }
+#include "Console.hpp"
 
-    std::string Weapon::Information() const
+namespace CPP
+{
+    std::string _Weapon::Information() const
     {
-        return Title + ":" + "\n" +
-               "    Damage: " + std::to_string(Damage);
+        return _Item::Information() + "\n" +
+               "    Type: " + Type + "\n" +
+               "    Damage: " + "\n" +
+               Console.Information(Damage , 8 , true) + "\n" +
+               "    Enchant: " + std::to_string(Enchant) + "\n" +
+               "    ToHitArmorClass0: " + std::to_string(ToHitArmorClass0) + "\n" +
+               "    Special: " + "\n" +
+               (Special.empty() ? "" : Console.Information(Special , 8 , true) + "\n") +
+               "    Speed: " + std::to_string(Speed) + "\n"
+               "    Weight: " + std::to_string(Weight);
     }
 }

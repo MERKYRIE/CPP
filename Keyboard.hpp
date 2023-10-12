@@ -4,17 +4,17 @@
 
 #include <vector>
 
-namespace CPP2
+namespace CPP
 {
     inline class _Keyboard
     {
         private:
-            std::vector<std::uint8_t> _Last;
-            std::vector<std::uint8_t> _State;
+            std::vector<unsigned char> _Last;
+            std::vector<unsigned char> _State;
         public:
             _Keyboard();
             void Update();
-            bool Pressed(std::uint8_t Key);
+            bool Pressed(unsigned char Key);
     }
     Keyboard;
 }

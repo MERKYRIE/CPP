@@ -1,19 +1,16 @@
 #pragma once
 
-#include <iostream>
 #include <string>
 
-namespace CPP2
+namespace CPP
 {
-    class Item
+    class _Item
     {
-        private:
-            friend class Game;
-        private:
+        public:
             std::string Title;
             unsigned long long int Cost;
         public:
-            std::string Message() const;
-            std::string Information() const;
+            virtual std::string Message() const;
+            virtual std::string Information() const;
     };
 }

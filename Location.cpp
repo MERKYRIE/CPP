@@ -2,17 +2,17 @@
 
 #include "Console.hpp"
 
-namespace CPP2
+namespace CPP
 {
-    std::string Location::Message() const
+    std::string _Location::Message() const
     {
         return Title;
     }
     
-    std::string Location::Information() const
+    std::string _Location::Information() const
     {
         return Title + ":" + "\n" +
-               "    Merchants: " + "\n" +
-               Console.Message(Merchants , 8 , true);
+               "    Stores: " + "\n" +
+               Console.Message(Stores , 8 , true);
     }
 }

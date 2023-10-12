@@ -18,6 +18,40 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Attribute.cpp" />
+    <ClCompile Include="Damage.cpp" />
+    <ClCompile Include="Bonus.cpp" />
+    <ClCompile Include="Damages.cpp" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Item.cpp" />
+    <ClCompile Include="Items.cpp" />
+    <ClCompile Include="Keyboard.cpp" />
+    <ClCompile Include="Location.cpp" />
+    <ClCompile Include="Store.cpp" />
+    <ClCompile Include="Weapon.cpp" />
+    <ClCompile Include="Weaponry.cpp" />
+    <ClCompile Include="Weapons.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Attribute.hpp" />
+    <ClInclude Include="Console.hpp" />
+    <ClInclude Include="Damage.hpp" />
+    <ClInclude Include="Bonus.hpp" />
+    <ClInclude Include="Damages.hpp" />
+    <ClInclude Include="Game.hpp" />
+    <ClInclude Include="Item.hpp" />
+    <ClInclude Include="Items.hpp" />
+    <ClInclude Include="Keyboard.hpp" />
+    <ClInclude Include="Location.hpp" />
+    <ClInclude Include="Store.hpp" />
+    <ClInclude Include="Weapon.hpp" />
+    <ClInclude Include="Weaponry.hpp" />
+    <ClInclude Include="Weapons.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Console.inl" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
