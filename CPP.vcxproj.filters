@@ -14,6 +14,9 @@
     <ClCompile Include="Bonus.cpp" />
     <ClCompile Include="Attribute.cpp" />
     <ClCompile Include="Damages.cpp" />
+    <ClCompile Include="Locations.cpp" />
+    <ClCompile Include="Stores.cpp" />
+    <ClCompile Include="Weaponries.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Console.hpp" />
@@ -30,6 +33,9 @@
     <ClInclude Include="Bonus.hpp" />
     <ClInclude Include="Attribute.hpp" />
     <ClInclude Include="Damages.hpp" />
+    <ClInclude Include="Locations.hpp" />
+    <ClInclude Include="Stores.hpp" />
+    <ClInclude Include="Weaponries.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Console.inl" />

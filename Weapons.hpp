@@ -1,6 +1,5 @@
 #pragma once
 
-#include "Damages.hpp"
 #include "Weapon.hpp"
 
 #include <map>

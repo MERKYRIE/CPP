@@ -2,9 +2,6 @@
 
 #include "Store.hpp"
 
-#include <iostream>
-#include <vector>
-
 namespace CPP
 {
     class _Location

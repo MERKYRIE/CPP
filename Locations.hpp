@@ -1,17 +1,17 @@
 #pragma once
 
-#include "Item.hpp"
+#include "Location.hpp"
 
 #include <map>
 
-namespace CPP::Items
+namespace CPP::Locations
 {
     enum class Type : unsigned long long int
     {
         Test ,
     };
     
-    inline std::map<Type , _Item> Array;
+    inline std::map<Type , _Location> Array;
 
     void Initialize();
 }

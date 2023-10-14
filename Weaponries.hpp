@@ -1,17 +1,17 @@
 #pragma once
 
-#include "Item.hpp"
+#include "Weaponry.hpp"
 
 #include <map>
 
-namespace CPP::Items
+namespace CPP::Weaponries
 {
     enum class Type : unsigned long long int
     {
         Test ,
     };
     
-    inline std::map<Type , _Item> Array;
+    inline std::map<Type , _Weaponry> Array;
 
     void Initialize();
 }

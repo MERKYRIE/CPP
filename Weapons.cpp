@@ -1,5 +1,7 @@
 #include "Weapons.hpp"
 
+#include "Damages.hpp"
+
 namespace CPP::Weapons
 {
     void Initialize()

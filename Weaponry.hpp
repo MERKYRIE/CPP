@@ -9,6 +9,6 @@ namespace CPP
         public:
 
         public:
-            _Weaponry(const std::string& Title);
+            
     };
 }

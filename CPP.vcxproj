@@ -28,8 +28,11 @@
     <ClCompile Include="Items.cpp" />
     <ClCompile Include="Keyboard.cpp" />
     <ClCompile Include="Location.cpp" />
+    <ClCompile Include="Locations.cpp" />
     <ClCompile Include="Store.cpp" />
+    <ClCompile Include="Stores.cpp" />
     <ClCompile Include="Weapon.cpp" />
+    <ClCompile Include="Weaponries.cpp" />
     <ClCompile Include="Weaponry.cpp" />
     <ClCompile Include="Weapons.cpp" />
   </ItemGroup>
@@ -44,8 +47,11 @@
     <ClInclude Include="Items.hpp" />
     <ClInclude Include="Keyboard.hpp" />
     <ClInclude Include="Location.hpp" />
+    <ClInclude Include="Locations.hpp" />
     <ClInclude Include="Store.hpp" />
+    <ClInclude Include="Stores.hpp" />
     <ClInclude Include="Weapon.hpp" />
+    <ClInclude Include="Weaponries.hpp" />
     <ClInclude Include="Weaponry.hpp" />
     <ClInclude Include="Weapons.hpp" />
   </ItemGroup>
@@ -110,6 +116,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -124,6 +131,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -153,6 +161,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

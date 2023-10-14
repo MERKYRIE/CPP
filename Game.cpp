@@ -1,10 +1,19 @@
 #include "Game.hpp"
 
+#include "Attribute.hpp"
+#include "Bonus.hpp"
 #include "Console.hpp"
+#include "Damage.hpp"
 #include "Damages.hpp"
 #include "Item.hpp"
+#include "Items.hpp"
+#include "Keyboard.hpp"
 #include "Location.hpp"
+#include "Locations.hpp"
+#include "Store.hpp"
+#include "Stores.hpp"
 #include "Weapon.hpp"
+#include "Weaponries.hpp"
 #include "Weaponry.hpp"
 #include "Weapons.hpp"
 
@@ -19,20 +28,13 @@ namespace CPP::Game
     
     void Initialize()
     {
-        Weapons::Initialize();
+        Items::Initialize();
+        Stores::Initialize();
         Damages::Initialize();
-        Locations.push_back(new _Location);
-        Locations[0]->Title = "Location 0";
-        Locations[0]->Transitions = {1};
-        Locations[0]->Stores = {new _Store{"Store 0"} , new _Store{"Store 1"}};
-        Locations.push_back(new _Location);
-        Locations[1]->Title = "Location 1";
-        Locations[1]->Transitions = {0 , 2};
-        Locations[1]->Stores = {new _Store{"Store 0"} , new _Store{"Store 1"}};
-        Locations.push_back(new _Location);
-        Locations[2]->Title = "Location 2";
-        Locations[2]->Transitions = {1};
-        Locations[2]->Stores = {new _Weaponry{"Weaponry 0"} , new _Weaponry{"Weaponry 1"}};
+        Weapons::Initialize();
+        Weaponries::Initialize();
+        Locations::Initialize();
+        Locations.push_back(&Locations::Array[Locations::Type::Test]);
         Name = "<Name>";
         Location = 0;
         Money = 1;
@@ -43,10 +45,10 @@ namespace CPP::Game
     void Inspect()
     {
         std::cout << Name << ":" << "\n"
-                  << "    Location: " << Console.Information(Locations[Location] , 4 , false) << "\n"
+                  << "    Location: " << Console.Information(Locations[Location] , 4 , false)
                   << "    Money: " << Money << "\n"
                   << "    Inventory: " << "\n"
-                  << (Inventory.empty() ? "" : Console.Information(Inventory , 8 , true) + "\n")
+                  << Console.Information(Inventory , 8 , true)
                   << "    Weapon: " << Console.Information(Weapon , 4 , false) << "\n\n";
     }
 

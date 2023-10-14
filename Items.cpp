@@ -1,6 +1,10 @@
 #include "Items.hpp"
 
-namespace CPP
+namespace CPP::Items
 {
-    std::vector<_Item> Items;
+    void Initialize()
+    {
+        Array[Type::Test].Title = "Test";
+        Array[Type::Test].Cost = 0;
+    }
 }

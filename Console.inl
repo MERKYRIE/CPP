@@ -80,7 +80,7 @@ namespace CPP
         }
         if(!String.empty())
         {
-            String.pop_back();
+            //String.pop_back();
         }
         return String;
     }
@@ -94,7 +94,7 @@ namespace CPP
         }
         if(!String.empty())
         {
-            String.pop_back();
+            //String.pop_back();
         }
         return String;
     }

@@ -15,7 +15,6 @@ namespace CPP
             std::vector<_Item*> Inventory;
             bool Dead;
         public:
-            _Store(const std::string& Title);
             virtual std::string Message() const;
             virtual std::string Information() const;
     };
